@@ -1,10 +1,13 @@
-const waitForElement = (selector, callback) => {
+const waitForElement = (selector, callback, options = { once: true }) => {
   const observer = new MutationObserver((mutations, obs) => {
     const element = document.querySelector(selector);
 
     if (element) {
       callback(element);
-      obs.disconnect();
+
+      if (options.once) {
+        obs.disconnect();
+      }
     }
   });
 
@@ -36,22 +39,26 @@ const extensionBtn = `
 `;
 
 waitForElement('.TaskPaneToolbar.TaskPane-header', (el) => {
-  const firstOptionElement = el.querySelector('.SubtleHeartButton.TaskPaneToolbar-button');
+  if (!el.querySelector('.alc-extension-btn')) {
+    const firstOptionElement = el.querySelector('.SubtleHeartButton.TaskPaneToolbar-button');
 
-  firstOptionElement.insertAdjacentHTML("beforebegin", extensionBtn);
+    firstOptionElement.insertAdjacentHTML("beforebegin", extensionBtn);
 
-  el.querySelector('.alc-extension-btn').addEventListener('click', () => {
-    const svgPath = el.querySelector('.alc-extension-btn path');
+    el.querySelector('.alc-extension-btn').addEventListener('click', () => {
+      const svgPath = el.querySelector('.alc-extension-btn path');
 
-    const taskUrl = window.location.href;
-    const taskTitle = document.querySelector('.simpleTextarea[aria-label="Task Name"]').value;
+      const taskUrl = window.location.href;
+      const taskTitle = document.querySelector('.simpleTextarea[aria-label="Task Name"]').value;
 
-    copyToClipboard(taskUrl, taskTitle);
+      copyToClipboard(taskUrl, taskTitle);
 
-    svgPath.style.stroke = '#58a182';
+      svgPath.style.stroke = '#58a182';
 
-    setTimeout(() => {
-      svgPath.style.stroke = '#6d6e6f';
-    }, 5000);
-  });
+      setTimeout(() => {
+        svgPath.style.stroke = '#6d6e6f';
+      }, 5000);
+    });
+  }
+}, {
+  once: false,
 });

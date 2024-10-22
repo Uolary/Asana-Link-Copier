@@ -1,0 +1,93 @@
+.alc-extension_btn {
+  background: transparent;
+  fill: #6d6e6f;
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  min-height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: 8px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  justify-content: center;
+  align-items: center;
+  transition-property: background, border, fill;
+  transition-duration: .2s;
+  display: inline-flex;
+}
+
+.alc-extension_btn:hover {
+  background: rgba(55, 23, 23, .03);
+  border-color: transparent;
+  fill: #1e1f21;
+}
+
+.alc-extension_btn-icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.alc-extension_toast {
+  pointer-events: auto;
+  margin: 8px 12px;
+}
+
+.alc-extension_toast__enter {
+  animation: .3s cubic-bezier(.6,0,.2,1) both alc-extension_toast__fadeIn;
+}
+
+.alc-extension_toast__exit {
+  animation: .2s linear both alc-extension_toast__vanish;
+}
+
+@keyframes alc-extension_toast__fadeIn {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes alc-extension_toast__vanish {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.alc-extension_toast-container {
+  box-shadow: 0 6px 12px 0 rgba(109,110,111,.12);
+  color: #6d6e6f;
+  border: 0;
+  border-radius: 4px;
+  width: 256px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  overflow: hidden;
+  text-align: right;
+  background: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.alc-extension_toast-container:before {
+  background: #58a182;
+  content: "";
+  border-top-right-radius: 4px;
+  height: 8px;
+  display: block;
+}
+
+.alc-extension_toast-text {
+  margin: 16px;
+  text-align: left;
+}

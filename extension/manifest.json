@@ -1,7 +1,7 @@
 {
   "name": "Asana Link Copier",
   "version": "1.0.0",
-  "description": "Simply copying the link to the task along with the title",
+  "description": "Simply copying the link to the task along with the title.",
   "manifest_version": 3,
   "icons": {
     "16": "./icons/icon16.png",
@@ -11,7 +11,7 @@
   },
   "permissions": ["storage"],
   "action":{
-    "default_title": "Asana Link Copier.",
+    "default_title": "Asana Link Copier",
     "default_popup": "popup.html"
   },
   "content_scripts": [{

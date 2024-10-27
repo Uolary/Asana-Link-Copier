@@ -24,7 +24,7 @@ const copyToClipboard = (url, title) => {
     new ClipboardItem({
       'text/plain': new Blob([title], {type: 'text/plain'}),
       'text/html': new Blob([html], {type: 'text/html'})
-    })
+    }),
   ]).catch(err => {
     console.error('Failed to copy: ', err);
   });
@@ -64,10 +64,23 @@ waitForElement('.TaskPaneToolbar.TaskPane-header', (el) => {
 
       document.querySelector('.DefaultToastGroup').insertAdjacentHTML('afterbegin', toast);
 
+      const currentDate = new Date().toLocaleDateString();
+      const currentTime = new Date().toLocaleTimeString([], {timeStyle: 'short'});
+
+      linkStorage.addLink(
+        {
+          url: taskUrl,
+          title: taskTitle,
+          date: `${currentDate} ${currentTime}`,
+        },
+      ).then(() => {
+        console.log(`The link ${taskUrl} was copied to the clipboard.`);
+      });
+
       setTimeout(() => {
-        svgPath.style.stroke = '#6d6e6f'
         const toastElement = document.querySelector('.DefaultToastGroup').querySelector('.alc-extension_toast');
 
+        svgPath.style.stroke = '#6d6e6f'
         toastElement.classList.remove('alc-extension_toast__enter');
         toastElement.classList.add('alc-extension_toast__exit');
 

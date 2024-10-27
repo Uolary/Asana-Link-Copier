@@ -1,4 +1,4 @@
-.alc-extension_btn {
+.alc-extension__btn {
   background: transparent;
   fill: #6d6e6f;
   width: 28px;
@@ -18,32 +18,41 @@
   display: inline-flex;
 }
 
-.alc-extension_btn:hover {
+.alc-extension__btn:hover {
   background: rgba(55, 23, 23, .03);
   border-color: transparent;
   fill: #1e1f21;
 }
 
-.alc-extension_btn-icon {
+.alc-extension__icon {
   flex: none;
   width: 16px;
   height: 16px;
+  fill: none;
 }
 
-.alc-extension_toast {
+.alc-extension__icon-path_gray {
+  stroke: #6d6e6f;
+}
+
+.alc-extension__icon-path_green {
+  stroke: #58a182;
+}
+
+.alc-extension-toast {
   pointer-events: auto;
   margin: 8px 12px;
 }
 
-.alc-extension_toast__enter {
-  animation: .3s cubic-bezier(.6,0,.2,1) both alc-extension_toast__fadeIn;
+.alc-extension-toast__enter {
+  animation: .3s cubic-bezier(.6,0,.2,1) both alc-extension-toast__fadeIn;
 }
 
-.alc-extension_toast__exit {
-  animation: .2s linear both alc-extension_toast__vanish;
+.alc-extension-toast__exit {
+  animation: .2s linear both alc-extension-toast__vanish;
 }
 
-@keyframes alc-extension_toast__fadeIn {
+@keyframes alc-extension-toast__fadeIn {
   0% {
     transform: translateY(100%);
   }
@@ -53,7 +62,7 @@
   }
 }
 
-@keyframes alc-extension_toast__vanish {
+@keyframes alc-extension-toast__vanish {
   0% {
     opacity: 1;
   }
@@ -63,7 +72,7 @@
   }
 }
 
-.alc-extension_toast-container {
+.alc-extension-toast__container {
   box-shadow: 0 6px 12px 0 rgba(109,110,111,.12);
   color: #6d6e6f;
   border: 0;
@@ -79,7 +88,7 @@
   box-sizing: border-box;
 }
 
-.alc-extension_toast-container:before {
+.alc-extension-toast__container:before {
   background: #58a182;
   content: "";
   border-top-right-radius: 4px;
@@ -87,7 +96,7 @@
   display: block;
 }
 
-.alc-extension_toast-text {
+.alc-extension-toast__text {
   margin: 16px;
   text-align: left;
 }

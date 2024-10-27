@@ -18,7 +18,7 @@
     "matches": ["https://app.asana.com/*"],
     "js": [
       "./scripts/content.js",
-      "./scripts/linkStorage.js"
+      "./scripts/linkHistory.js"
     ],
     "css": ["./styles/content.css"],
     "run_at": "document_end"

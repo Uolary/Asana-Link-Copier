@@ -26,48 +26,49 @@ const copyToClipboard = (url, title) => {
       'text/html': new Blob([html], {type: 'text/html'})
     }),
   ]).catch(err => {
-    console.error('Failed to copy: ', err);
+    console.error('Failed to copy:', err);
   });
 };
 
 const extensionBtn = `
-  <div role="button" aria-label="Copy task link" class="alc-extension_btn" tabindex="0">
-    <svg viewBox="0 0 24 24" fill="none" class="alc-extension_btn-icon" focusable="false">
-      <path stroke="#6d6e6f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.5 14H19C20.1046 14 21 13.1046 21 12V5C21 3.89543 20.1046 3 19 3H12C10.8954 3 10 3.89543 10 5V6.5M5 10H12C13.1046 10 14 10.8954 14 12V19C14 20.1046 13.1046 21 12 21H5C3.89543 21 3 20.1046 3 19V12C3 10.8954 3.89543 10 5 10Z" />
+  <div role="button" aria-label="Copy task link" class="alc-extension__btn" tabindex="0">
+    <svg viewBox="2 2 20 20" class="alc-extension__icon" focusable="false">
+      <path class="alc-extension__icon-path alc-extension__icon-path_gray" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.5 14H19C20.1046 14 21 13.1046 21 12V5C21 3.89543 20.1046 3 19 3H12C10.8954 3 10 3.89543 10 5V6.5M5 10H12C13.1046 10 14 10.8954 14 12V19C14 20.1046 13.1046 21 12 21H5C3.89543 21 3 20.1046 3 19V12C3 10.8954 3.89543 10 5 10Z" />
     </svg>
   </div>
 `;
 
 const toast = `
-  <div class="alc-extension_toast alc-extension_toast__enter">
-    <div class="alc-extension_toast-container" role="alert" tabindex="-1">
-      <div class="alc-extension_toast-text">Link copied</div>
+  <div class="alc-extension-toast alc-extension-toast__enter">
+    <div class="alc-extension-toast__container" role="alert" tabindex="-1">
+      <div class="alc-extension-toast__text">Link copied</div>
     </div>
   </div>
 `;
 
 waitForElement('.TaskPaneToolbar.TaskPane-header', (el) => {
-  if (!el.querySelector('.alc-extension_btn')) {
+  if (!el.querySelector('.alc-extension__btn')) {
     const firstOptionElement = el.querySelector('.SubtleHeartButton.TaskPaneToolbar-button');
 
     firstOptionElement.insertAdjacentHTML("beforebegin", extensionBtn);
 
-    el.querySelector('.alc-extension_btn').addEventListener('click', () => {
-      const svgPath = el.querySelector('.alc-extension_btn path');
+    el.querySelector('.alc-extension__btn').addEventListener('click', () => {
+      const iconPath = el.querySelector('.alc-extension__icon-path');
 
       const taskUrl = window.location.href;
       const taskTitle = document.querySelector('.simpleTextarea[aria-label="Task Name"]').value;
 
       copyToClipboard(taskUrl, taskTitle);
 
-      svgPath.style.stroke = '#58a182';
+      iconPath.classList.remove('alc-extension__icon-path_gray');
+      iconPath.classList.add('alc-extension__icon-path_green');
 
       document.querySelector('.DefaultToastGroup').insertAdjacentHTML('afterbegin', toast);
 
       const currentDate = new Date().toLocaleDateString();
       const currentTime = new Date().toLocaleTimeString([], {timeStyle: 'short'});
 
-      linkStorage.addLink(
+      linkHistory.addLink(
         {
           url: taskUrl,
           title: taskTitle,
@@ -78,11 +79,13 @@ waitForElement('.TaskPaneToolbar.TaskPane-header', (el) => {
       });
 
       setTimeout(() => {
-        const toastElement = document.querySelector('.DefaultToastGroup').querySelector('.alc-extension_toast');
+        const toastElement = document.querySelector('.DefaultToastGroup .alc-extension-toast');
 
-        svgPath.style.stroke = '#6d6e6f'
-        toastElement.classList.remove('alc-extension_toast__enter');
-        toastElement.classList.add('alc-extension_toast__exit');
+        toastElement.classList.remove('alc-extension-toast__enter');
+        toastElement.classList.add('alc-extension-toast__exit');
+
+        iconPath.classList.remove('alc-extension__icon-path_green');
+        iconPath.classList.add('alc-extension__icon-path_gray');
 
         setTimeout(() => {
           toastElement.remove();

@@ -7,7 +7,7 @@ body {
   max-width: 500px;
 }
 
-.alc-extension-popup_header {
+.alc-extension-popup__header {
   padding: 10px 20px;
   background-color: #2e2e30;
   color: #FFFFFF;
@@ -15,25 +15,25 @@ body {
   align-items: center;
 }
 
-.alc-extension-popup_icon {
+.alc-extension-popup__icon {
   margin-right: 10px;
   max-width: 32px;
   height: auto;
 }
 
-.alc-extension-popup_links-block {
+.alc-extension-popup__links-block {
   padding: 10px 20px;
   max-height: 300px;
   overflow: scroll;
 }
 
-.alc-extension-popup_list {
+.alc-extension-popup__list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.alc-extension-popup_item {
+.alc-extension-popup__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,11 +41,11 @@ body {
   border-bottom: 1px solid #e0e0e0;
 }
 
-.alc-extension-popup_item:last-child {
+.alc-extension-popup__item:last-child {
   border-bottom: none;
 }
 
-.alc-extension-popup_link {
+.alc-extension-popup__link {
   text-decoration: none;
   font-weight: 500;
   color: #4878de;
@@ -56,11 +56,11 @@ body {
   display: inline-block;
 }
 
-.alc-extension-popup_link:hover {
+.alc-extension-popup__link:hover {
   color: #305196;
 }
 
-.alc-extension-popup_date {
+.alc-extension-popup__date {
   color: #888;
   white-space: nowrap;
   margin-left: 5px;

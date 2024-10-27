@@ -9,12 +9,18 @@
     "48": "./icons/icon48.png",
     "128": "./icons/icon128.png"
   },
+  "permissions": ["storage"],
+  "action":{
+    "default_title": "Asana Link Copier.",
+    "default_popup": "popup.html"
+  },
   "content_scripts": [{
     "matches": ["https://app.asana.com/*"],
     "js": [
-      "./content.js"
+      "./scripts/content.js",
+      "./scripts/linkStorage.js"
     ],
-    "css": ["./styles.css"],
+    "css": ["./styles/content.css"],
     "run_at": "document_end"
   }]
 }

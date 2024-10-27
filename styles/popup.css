@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+  min-width: 400px;
+  max-width: 500px;
+}
+
+.alc-extension-popup_header {
+  padding: 10px 20px;
+  background-color: #2e2e30;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+
+.alc-extension-popup_icon {
+  margin-right: 10px;
+  max-width: 32px;
+  height: auto;
+}
+
+.alc-extension-popup_links-block {
+  padding: 10px 20px;
+  max-height: 300px;
+  overflow: scroll;
+}
+
+.alc-extension-popup_list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alc-extension-popup_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.alc-extension-popup_item:last-child {
+  border-bottom: none;
+}
+
+.alc-extension-popup_link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #4878de;
+  transition: color 0.3s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
+.alc-extension-popup_link:hover {
+  color: #305196;
+}
+
+.alc-extension-popup_date {
+  color: #888;
+  white-space: nowrap;
+  margin-left: 5px;
+}

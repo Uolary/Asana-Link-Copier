@@ -4,18 +4,22 @@
 </h1>
 
 The Asana Link Copier Chrome extension helps you effortlessly copy Asana task links with the task title embedded as a hyperlink.
-Perfect for project managers, team leads, and Asana users, this extension allows you to create clean, clickable links to Asana tasks,
-making it easy to share organized information across your team.
+
+Easily copy task links with titles in Asana!
+This extension helps you stay organized and productive by allowing you to copy task URLs along with their titles as clickable hyperlinks.
+With just a click, save and retrieve task links for quick access, perfect for managing tasks across projects or sharing with teammates.
 
 ## Features
 
-- One-Click Copying: Copy the task title along with the URL with just one click.
+- One-Click Copying: Quickly copy task URLs with titles as hyperlinks.
 
-<img src="./screenshots/One-Click-Copying.png" alt="Screenshot of One-Click Copying" width="500">
+<img src="./screenshots/One-Click-Copying.jpg" alt="Screenshot of One-Click Copying" width="500">
 
-- Copy History: View the history of previously copied task references.
+- Copy History: Access recent task links without hassle.
 
-<img src="./screenshots/Copy-History.png" alt="Screenshot of Copy History" width="500">
+<img src="./screenshots/Copy-History.jpg" alt="Screenshot of Copy History" width="500">
+
+- Privacy: All data is stored locally within your browser, ensuring privacy.
 
 ## Example
 
@@ -29,7 +33,7 @@ https://app.asana.com/0/1234/1234/f
 
 ## Installation
 
-Since this extension is not yet available on the Chrome Web Store, you can install it manually using Developer Mode in Chrome. Follow these steps:
+You can find this extension in [Chrome Web Store](https://chromewebstore.google.com/detail/asana-link-copier/ndnlbajcijcampoioioalcmfehdlbkjn) or install it manually using developer mode in Chrome. Follow these steps:
 
 1. **Clone or Download the Repository:** Clone [this repository](https://github.com/Uolary/Asana-Link-Copier) to your local machine, or download it as a ZIP and extract it to a folder.
 

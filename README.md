@@ -13,11 +13,11 @@ With just a click, save and retrieve task links for quick access, perfect for ma
 
 - One-Click Copying: Quickly copy task URLs with titles as hyperlinks.
 
-<img src="./screenshots/One-Click-Copying.jpg" alt="Screenshot of One-Click Copying" width="500">
+<img src="./images/screenshots/One-Click-Copying.jpg" alt="Screenshot of One-Click Copying" width="500">
 
 - Copy History: Access recent task links without hassle.
 
-<img src="./screenshots/Copy-History.jpg" alt="Screenshot of Copy History" width="500">
+<img src="./images/screenshots/Copy-History.jpg" alt="Screenshot of Copy History" width="500">
 
 - Privacy: All data is stored locally within your browser, ensuring privacy.
 

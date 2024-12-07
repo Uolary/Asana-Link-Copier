@@ -17,13 +17,14 @@ const waitForElement = (selector, callback, options = { once: true }) => {
   });
 };
 
-const copyToClipboard = (url, title) => {
-  const html = `<a href="${url}" target="_blank">${title}</a>`;
+const copyToClipboard = (url, title, isShiftKey) => {
+  const textPlain = isShiftKey ? `=HYPERLINK("${url}";"${title}")` : title;
+  const textHtml = `<a href="${url}" target="_blank">${title}</a>`;
 
   navigator.clipboard.write([
     new ClipboardItem({
-      'text/plain': new Blob([title], {type: 'text/plain'}),
-      'text/html': new Blob([html], {type: 'text/html'})
+      'text/plain': new Blob([textPlain], {type: 'text/plain'}),
+      'text/html': new Blob([textHtml], {type: 'text/html'})
     }),
   ]).catch(err => {
     console.error('Failed to copy:', err);
@@ -52,13 +53,17 @@ waitForElement('.TaskPaneToolbar.TaskPane-header', (el) => {
 
     firstOptionElement.insertAdjacentHTML("beforebegin", extensionBtn);
 
-    el.querySelector('.alc-extension__btn').addEventListener('click', () => {
+    el.querySelector('.alc-extension__btn').addEventListener('click', (event) => {
       const iconPath = el.querySelector('.alc-extension__icon-path');
 
       const taskUrl = window.location.href;
-      const taskTitle = document.querySelector('.simpleTextarea[aria-label="Task Name"]').value;
+      let taskTitle = document.querySelector('.SimpleTextarea[aria-label="Task Name"]')?.value;
 
-      copyToClipboard(taskUrl, taskTitle);
+      if (!taskTitle) {
+        taskTitle = document.querySelector('.TaskPaneTitle .ReadOnlyTitleInput-name')?.textContent;
+      }
+
+      copyToClipboard(taskUrl, taskTitle, event.shiftKey);
 
       iconPath.classList.remove('alc-extension__icon-path_gray');
       iconPath.classList.add('alc-extension__icon-path_green');

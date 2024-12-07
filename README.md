@@ -11,7 +11,7 @@ With just a click, save and retrieve task links for quick access, perfect for ma
 
 ## Features
 
-- One-Click Copying: Quickly copy task URLs with titles as hyperlinks.
+- One-Click Copying: Quickly copy task URLs with titles as hyperlinks. To copy and paste a link into Google Sheets you need to hold down `Left Shift` key and click on the copy button.
 
 <img src="./images/screenshots/One-Click-Copying.jpg" alt="Screenshot of One-Click Copying" width="500">
 
@@ -30,6 +30,10 @@ https://app.asana.com/0/1234/1234/f
 **Copied Link (after clicking the extension button):**
 
 [Create an extension for Google Chrome](https://app.asana.com/0/1234/1234/f)
+
+**Copied Link for Google Sheets (after holding Left Shift key down and clicking the extension button):**
+
+`=HYPERLINK("https://app.asana.com/0/1234/1234/f";"Create an extension for Google Chrome")`
 
 ## Installation
 

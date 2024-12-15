@@ -1,6 +1,6 @@
 {
   "name": "Asana Link Copier",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The Asana Link Copier Chrome extension helps you effortlessly copy Asana task links with the task title embedded as a hyperlink.",
   "manifest_version": 3,
   "icons": {

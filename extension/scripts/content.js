@@ -57,7 +57,7 @@ waitForElement('.TaskPaneToolbar.TaskPane-header', (el) => {
       const iconPath = el.querySelector('.alc-extension__icon-path');
 
       const taskUrl = window.location.href;
-      let taskTitle = document.querySelector('.SimpleTextarea[aria-label="Task Name"]')?.value;
+      let taskTitle = document.querySelector('.TitleInput-objectName .SimpleTextarea')?.value;
 
       if (!taskTitle) {
         taskTitle = document.querySelector('.TaskPaneTitle .ReadOnlyTitleInput-name')?.textContent;

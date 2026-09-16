@@ -57,10 +57,10 @@ waitForElement('.TaskPaneToolbar.TaskPane-header', (el) => {
       const iconPath = el.querySelector('.alc-extension__icon-path');
 
       const taskUrl = window.location.href;
-      let taskTitle = document.querySelector('textarea[aria-label="Task Name"]')?.value?.trim();
+      let taskTitle = document.querySelector('[role="heading"][aria-level="2"] textarea')?.value?.trim();
 
       if (!taskTitle) {
-        taskTitle = document.querySelector('[role="heading"][aria-level="2"]')?.textContent?.trim();
+        taskTitle = document.querySelector('.ReadOnlyTitleInput-name')?.textContent?.trim();
       }
 
       if (!taskTitle) {
